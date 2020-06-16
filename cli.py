@@ -40,7 +40,7 @@ def post_event_file(organization, workspace, event_file, token, endpoint):
 @click.option('-w', '--workspace', type=str, help="Your workspace name")
 @click.option('-o', '--organization', type=str, help="Your organization name")
 @click.option('--endpoint', type=str, help="Eventhub endpoint", default="http://127.0.0.1:5000")
-def load(event_file, email, password, workspace, organization, endpoint):
+def push(event_file, email, password, workspace, organization, endpoint):
     event_file_content = json.loads(event_file.read())
 
     token = login(email, password, endpoint)
