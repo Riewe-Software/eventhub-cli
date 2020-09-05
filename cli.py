@@ -16,6 +16,17 @@ def login(email, password, endpoint):
         raise click.Abort()
 
 
+def post_signup(email, password, endpoint):
+    click.echo("Signing up..")
+    response = requests.post(endpoint + "/user", json={"email": email, "password": password})
+    if response.ok:
+        click.echo("Successfully signed up!")
+        return response.json()
+    else:
+        click.echo(str(response.json().get('message')))
+        raise click.Abort()
+
+
 def post_event_file(organization, workspace, event_file, token, endpoint):
     click.echo("Updating the event file...")
     json_data = {
@@ -34,9 +45,11 @@ def post_event_file(organization, workspace, event_file, token, endpoint):
 
 
 @cli.command()
+@click.argument('email', type=str)
+@click.argument('password', type=str)
 @click.option('--endpoint', type=str, help="Eventhub endpoint", default="https://eventhub-backend-dev.herokuapp.com/")
-def signup(endpoint):
-    click.echo(endpoint + "signup")
+def signup(email, password, endpoint):
+    post_signup(email, password, endpoint)
 
 
 @cli.command()
