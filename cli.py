@@ -34,6 +34,12 @@ def post_event_file(organization, workspace, event_file, token, endpoint):
 
 
 @cli.command()
+@click.option('--endpoint', type=str, help="Eventhub endpoint", default="https://eventhub-backend-dev.herokuapp.com/")
+def signup(endpoint):
+    click.echo(endpoint + "signup")
+
+
+@cli.command()
 @click.argument('event_file', type=click.File())
 @click.option('-e', '--email', type=str, help="Your email")
 @click.option('-p', '--password', type=str, help="Your password")

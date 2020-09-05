@@ -6,6 +6,14 @@
       "properties": {
         "foo": "string"
       }
+    },
+    {
+      "name": "user.created",
+      "properties": {
+        "firstName": "string",
+        "lastName": "string",
+        "email": "int"
+      }
     }
   ]
 }
