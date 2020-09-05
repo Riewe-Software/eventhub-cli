@@ -21,3 +21,16 @@ Options:
   --endpoint TEXT          Eventhub endpoint
   --help                   Show this message and exit.
 ```
+### `signup`: Signup to EventHub
+Example:
+```
+eventhub-cli eventhub-cli signup [YOUR_EMAIL] [YOUR_PASSWORD]
+```
+Options:
+```
+Usage: eventhub-cli signup [OPTIONS] EMAIL PASSWORD
+
+Options:
+  --endpoint TEXT  Eventhub endpoint
+  --help           Show this message and exit.
+```
